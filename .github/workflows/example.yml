@@ -1,0 +1,15 @@
+# Example: Add this to your repo's .github/workflows/publish-guard.yml
+name: Publish Guard
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  publish-guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oliver-virt/publish-guard@v1

@@ -1,0 +1,44 @@
+{
+  "name": "publish-guard",
+  "version": "1.0.0",
+  "description": "Pre-publish safety linter for npm packages. Blocks source maps, secrets, and source files from shipping to the registry.",
+  "bin": {
+    "publish-guard": "./src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [
+    "npm",
+    "publish",
+    "security",
+    "source-map",
+    "secrets",
+    "pre-publish",
+    "ci",
+    "lint",
+    "guard",
+    "prepublish"
+  ],
+  "author": "oliver-virt",
+  "license": "MIT",
+  "dependencies": {
+    "picocolors": "^1.1.1"
+  },
+  "type": "module",
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oliver-virt/publish-guard"
+  },
+  "homepage": "https://github.com/oliver-virt/publish-guard#readme",
+  "bugs": {
+    "url": "https://github.com/oliver-virt/publish-guard/issues"
+  }
+}

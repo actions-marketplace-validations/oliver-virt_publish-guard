@@ -1,0 +1,34 @@
+name: 'publish-guard'
+description: 'Pre-publish safety linter for npm packages. Catches source maps, secrets, and sensitive files before they ship to npm.'
+author: 'oliver-virt'
+
+branding:
+  icon: 'shield'
+  color: 'red'
+
+inputs:
+  directory:
+    description: 'Directory to scan (defaults to repository root)'
+    required: false
+    default: '.'
+  allow-src:
+    description: 'Allow src/ directory without warning'
+    required: false
+    default: 'false'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Run publish-guard
+      shell: bash
+      run: |
+        ARGS=""
+        if [ "${{ inputs.allow-src }}" = "true" ]; then
+          ARGS="--allow-src"
+        fi
+        npx publish-guard@latest $ARGS "${{ inputs.directory }}"
